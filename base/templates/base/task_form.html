@@ -1,0 +1,14 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<h1>Task Create Form</h1>
+<a href="{% url 'tasks' %}">Go Back</a>
+
+<form method = "POST" action="">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit", value="submit">
+
+</form>
+
+{% endblock content %}
