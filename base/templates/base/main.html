@@ -1,21 +1,201 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>To Do Items</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do Items</title>
 
-        <style>
-            body {
-                background-color: burlywood;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            {%block content%}
-            {%endblock content%}
-        </div>
-    </body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        height: 100%;
+        background-image: url('{%static "layered-waves-haikei.svg" %}');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        
+        font-family: 'Inter', sans-serif;
+        padding-top: 50px;
+
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        color: white;
+
+        background-color: #3882F6;
+        /* border: 10px solid white; */
+        border-radius: 40px 40px 0 0;
+        padding: 20px 40px;
+      }
+
+      /* CARDS */
+
+      .card {
+        overflow: hidden;
+        background-color: #fff;
+        max-width: 550px;
+        margin:auto;
+        display: flex;
+        flex-direction: column;
+
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+        transition: 0.3s;
+        border-radius: 40px;
+      }
+
+      .card:hover{
+        box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.5);
+      }
+
+      .card-body {
+        padding: 20px 40px;
+      }
+
+      h1{
+        font-weight: 700;
+      }
+      
+      h2,h3,h4,h5,h6 {
+        font-weight: 500;
+      }
+
+      a {
+        color: #3882F6;
+      }
+
+      .header a {
+        color: white;
+          
+      }
+
+      .helptext, ul {
+        display: block;
+        font-size: 12px;
+      }
+
+      /* BUTTON */
+
+      .button {
+        border: 1px solid #3882F6;
+        background-color:#3882F6;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 10px;
+      }
+
+      .button:hover {
+        background-color: white;
+        color: #3882F6;
+        cursor: pointer;
+      }
+
+      input[value=Search] {
+        border-radius: 0 10px 10px 0;
+      }
+
+      input[value=Delete] {
+        border: 1px solid red;
+        background-color:red;
+      }
+
+      input[value=Delete]:hover {
+        border: 1px solid red;
+        background-color:white;
+        color: red;
+      }
+
+      /* TEXT BOX */
+
+      label {
+        display: block;
+
+      }
+
+      input[type=text], input[type=password], textarea {
+        border:1px solid #3882F6;
+        border-radius: 10px;
+        padding: 5px;
+      }
+
+      input[name=search-area] {
+        border-radius: 10px 0 0 10px;
+      }
+
+      /* SEARCH & ADD */
+
+      .search-add-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+      }
+
+      .add-delete-link {
+        text-decoration: none;
+        font-size: 35px;
+        line-height: 0;
+      }
+
+      .add-delete-link:hover {
+        box-shadow: 0 20px 40px 0 rgba(255, 0, 0, 0.5);
+      }
+
+      /* TASK STYLING */
+
+      .task-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0px;
+
+        border-top: 1px solid rgb(200, 200, 200);
+      }
+
+      .task-title {
+        display: flex;
+        align-items: center;
+      }
+
+      .task-title:hover {
+        text-decoration: underline;
+      }
+
+      .task-title a{
+        text-decoration: none;
+        color: rgb(102, 102, 102);
+        margin-left: 15px;
+      }
+
+      .complete-icon {
+        background-color: #3882F6;
+        border: 3px solid #3882F6;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+      }
+
+      .incomplete-icon {
+        border: 3px solid #3882F6;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+      }
+
+    </style>
+  </head>
+  <body>
+      <div class="card">
+          {%block content%}
+          {%endblock content%}
+      </div>
+  </body>
 </html>
